@@ -1,0 +1,17 @@
+CD Inventory
+ 
+class CD
+properties:
+private long itemid;  // Primary key
+private String released;
+private String title;
+private String artist;
+
+---------------------------------------
+
+class Review
+properties:
+private long itemID		// CD id
+private String comments	
+private String postedFrom
+private long rating		

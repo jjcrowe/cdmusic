@@ -1,0 +1,46 @@
+This implementation will be using JAX-RS using Jersey implementation.
+However no matter what implementation you choose (Jersey, REST Easy, etc) the concepts and libraries are similiar.  For more information on Jersey see jersey.java.net.
+
+The project name for this example is cdmusic and the package structure is io.github.jjcrowe.cdmusic
+
+This example uses Tomcat version 8 and the Maven Jersey quickstart-webapp version 2.16.  Which means the imports will use javax libraries. 
+Example: import javax.ws.rs.*;  IF your using a newer version then it would be jakarata.ws.rs.*.
+
+Your project is created via Maven (its much easier than downloading the Jersey jars independently).
+Jersey is distributed (downloaded) via Maven.  Maven makes it easier than trying to download and install all of the needed jars individually.
+For more information on Maven and pom.xml files see: http://maven.apache.org
+
+Step 1
+Consider this step the design step. This example uses to model objects a CD and a Review for a CD.  See the document Design.txt for design details.
+
+Step 2
+Eclipse allows you to create a Maven project.  Choose Jersey Quick start webapp arch-type.
+It may take a little while for eclipse to download all of the Arch types (watch the lower right hand corner progress bar).
+Archetypes are like templates to get you started.
+See the Eclipse_New_Maven PNG images for the Maven project setup.
+
+Step 3.
+Setup a Tomcat server instance and add your Maven created cdmusic project to it.
+
+Step 4.
+Run the application and it should show the default "Jersey RESTful Web Application!"  HTML page.  Coming in on http://localhost:8080/cdmusic/
+
+Step 5.
+Download the source code from GitHub - 
+
+Step 6.
+This example uses produces and consumes data in JSON format. In order for MessageBody writer to do that the project needs extra dependencies.
+See below.
+
+
+----------------  Changing the format to JSON means you have to make changes to pom.xml first you also won't need the XmlRootElement annotation.
+You'll get 500 error MessageBodyWriter not found for Application/JSON otherwise.  It needs a separate jar for the json conversion.
+Fix 
+1) open pom.xml in the root of the project and uncomment this dependency:
+   <dependency>
+            <groupId>org.glassfish.jersey.media</groupId>
+            <artifactId>jersey-media-moxy</artifactId>
+        </dependency>
+    </dependencies>
+2) save pom.xml and after the workspace is reloaded (may take a few minutes) you'll see a few more jars including the media-moxy one listed.
+Note: MessageBodyWriter converts from a standard java type to another like xml, json, etc.

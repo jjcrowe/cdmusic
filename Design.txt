@@ -1,0 +1,17 @@
+The model objects are CD and Review. There is a one (CD) to zero-to-many (Review(s)) relationship between the objects.
+In other words for any one CD that exist there can be zero to many Review(s).  See the diagram ORM_Model_Diagram.png .
+
+All data will be sent/returned in JSON format.
+
+Raw data will be sent/received using powershell using JSON format.
+
+Return the Header status code to check for Post 201 created or an exception example 204.  To Do.
+
+Invoke-RestMethod and/or Invoke-WebRequest will be used
+
+JAX-RS interface using the Jersey implmentation.
+
+Data will either be written to files or for this example possibly hard-coded.
+
+
+

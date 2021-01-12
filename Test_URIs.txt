@@ -1,0 +1,23 @@
+
+GET tested within Firefox
+
+These return CD inventory information
+http://localhost:8080/cdmusic/webapi/cds	Collection URI returns all CDS
+http://localhost:8080/cdmusic/webapi/cds/145    Returns CD with ItemID ofr 145
+http://localhost:8080/cdmusic/webapi/cds/155    Waylon Jennings
+http://localhost:8080/cdmusic/webapi/cds/200  	Returns nothing
+http://localhost:8080/cdmusic/webapi/cds/wrong  String returns 404 Error
+
+
+
+http://localhost:8080/cdmusic/webapi/cds/155/reviews	Returns ALL reviews for CD 155
+http://localhost:8080/cdmusic/webapi/cds/145/reviews	Returns ALL reviews for CD 145
+
+Run these on Powershell command line.
+Creates a new review for CD 145
+Invoke-RestMethod -Method POST -Uri http://localhost:8080/cdmusic/webapi/cds/145/reviews -ContentType "application/json" -Body '{ "rating":"4","postedFrom":"Jess", "comment":"Pretty cool CD"}'
+
+Creates a new review for CD 155
+Invoke-RestMethod -Method POST -Uri http://localhost:8080/cdmusic/webapi/cds/155/reviews -ContentType "application/json" -Body '{ "rating":"3","postedFrom":"KarenC", "comment":"Wish it had a few more hits"}'
+
+Feel free to create your own.  :)
