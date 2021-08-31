@@ -15,9 +15,15 @@ http://localhost:8080/cdmusic/webapi/cds/145/reviews	Returns ALL reviews for CD 
 
 Run these on Powershell command line.
 Creates a new review for CD 145
-Invoke-RestMethod -Method POST -Uri http://localhost:8080/cdmusic/webapi/cds/145/reviews -ContentType "application/json" -Body '{ "rating":"4","postedFrom":"Jess", "comment":"Pretty cool CD"}'
+Invoke-RestMethod -Method POST -Uri http://localhost:8080/cdmusic/webapi/cds/145/reviews -ContentType "application/json" -Body '{ "reviewid":45, "rating":"3","postedFrom":"Jess", "comment":"Good music"}'
 
 Creates a new review for CD 155
-Invoke-RestMethod -Method POST -Uri http://localhost:8080/cdmusic/webapi/cds/155/reviews -ContentType "application/json" -Body '{ "rating":"3","postedFrom":"KarenC", "comment":"Wish it had a few more hits"}'
+Invoke-RestMethod -Method POST -Uri http://localhost:8080/cdmusic/webapi/cds/155/reviews -ContentType "application/json" -Body '{ "reviewid":"80", "rating":"3","postedFrom":"KarenC", "comment":"Wish it had a few more hits"}'
+
+
+NEW
+I've added a PUT request to update review comments and/or ratings.  Use the following as an example using powershell.
+Invoke-RestMethod -Method PUT -Uri http://localhost:8080/cdmusic/webapi/cds/145/reviews -ContentType "application/json" -Body '{ "reviewid":"10", "rating":"4","postedFrom":"Jan", "comment":"Love her style classic"}'
+
 
 Feel free to create your own.  :)
